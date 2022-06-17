@@ -13,6 +13,7 @@ function QuestionList() {
 
   // add delete and change PARENT functions 
 
+  // Delete from fetch
   function handleDeleteClick(id) {
     fetch(`http://localhost:4000/questions/${id}`, {
       method: "DELETE",
@@ -22,6 +23,26 @@ function QuestionList() {
         const newQuestions = questions.filter((q) => q.id !== id);
         setQuestions(newQuestions);
       });
+  };
+
+  // onChange from fetch
+  function handleChange(id, correctIndex) {
+    fetch(`http://localhost:4000/questions/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ correctIndex }),
+    })
+      .then((r) => r.json())
+      .then((newQuestion) => {
+        const newQuestions = questions.map((q) => {
+          if (q.id === newQuestion.id) return newQuestion;
+          return q;
+        });
+        // call new questions
+        setQuestions(newQuestions);
+      });
   }
 
   const questionItems = questions.map((q) => (
@@ -29,7 +50,7 @@ function QuestionList() {
       key={q.id}
       question={q}
       onDeleteClick={handleDeleteClick}
-      
+      onAnswerChange={handleChange}
       />
   ));
 
