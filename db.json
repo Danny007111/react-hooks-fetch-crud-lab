@@ -76,50 +76,6 @@
       ],
       "correctIndex": 0,
       "id": 7
-    },
-    {
-      "prompt": "the sky is ?",
-      "answers": [
-        "blue",
-        "green ",
-        "yellow",
-        "red"
-      ],
-      "correctIndex": 0,
-      "id": 8
-    },
-    {
-      "prompt": "the sky is ?",
-      "answers": [
-        "blue",
-        "green ",
-        "yellow",
-        "red"
-      ],
-      "correctIndex": 0,
-      "id": 9
-    },
-    {
-      "prompt": "the sky is ?",
-      "answers": [
-        "blue",
-        "green ",
-        "yellow",
-        "red"
-      ],
-      "correctIndex": 0,
-      "id": 10
-    },
-    {
-      "prompt": "the sky is ?",
-      "answers": [
-        "blue",
-        "green ",
-        "yellow",
-        "red"
-      ],
-      "correctIndex": 0,
-      "id": 11
     }
   ]
 }

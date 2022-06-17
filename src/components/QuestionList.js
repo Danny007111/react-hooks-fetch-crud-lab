@@ -11,10 +11,25 @@ function QuestionList() {
       .then((question) => setQuestions(question));
   }, []);
 
+  // add delete and change PARENT functions 
+
+  function handleDeleteClick(id) {
+    fetch(`http://localhost:4000/questions/${id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => {
+        const newQuestions = questions.filter((q) => q.id !== id);
+        setQuestions(newQuestions);
+      });
+  }
+
   const questionItems = questions.map((q) => (
     <QuestionItem
       key={q.id}
       question={q}
+      onDeleteClick={handleDeleteClick}
+      
       />
   ));
 
